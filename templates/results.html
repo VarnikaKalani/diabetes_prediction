@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Diabetes Prediction Results</h1>
+    </header>
+    <main>
+        {% if prediction == "Negative" %}
+        <div class="result celebration">
+            <h2>Congratulations! Your result is <span class="negative">Negative</span></h2>
+            <p>You are not at risk of diabetes. Keep maintaining a healthy lifestyle!</p>
+            <div class="confetti-container">
+                <!-- Generating 50 confetti pieces -->
+                {% for _ in range(50) %}
+                <div class="confetti"></div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <div class="result concern">
+            <h2>Your result is <span class="positive">Positive</span></h2>
+            <p>It seems you may be at risk for diabetes. We recommend consulting with a healthcare provider. Below are some helpful resources:</p>
+            <ul>
+                <li><a href="https://diabetes.org/about-diabetes/diagnosis" target="_blank">American Diabetes Association</a></li>
+                <li><a href="https://www.mayoclinic.org/diseases-conditions/diabetes/diagnosis-treatment/drc-20371451" target="_blank">Mayo Clinic: Diabetes Care</a></li>
+                <li><a href="https://www.optimindhealth.com/" target="_blank">OptiMind Health</a></li>
+            </ul>
+        </div>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Diabetes Prediction Tool. All rights reserved.</p>
+    </footer>
+</body>
+</html>
